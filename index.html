@@ -18,6 +18,9 @@
             // Agregar evento "unload" para cerrar la pestaña al hacer clic en el botón "Cerrar pestaña"
             nuevaPestana.addEventListener("load", function () {
                 nuevaPestana.document.body.innerHTML += "<button onclick='cerrarPestana()'>Cerrar pestaña</button>";
+
+                // Agregar una entrada al historial de la pestaña
+                nuevaPestana.history.pushState(null, null, "");
             });
 
             // Función para cerrar la pestaña
