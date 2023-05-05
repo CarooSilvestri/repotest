@@ -15,11 +15,15 @@
             // Abrir nueva pestaña
             var nuevaPestana = window.open("https://www.google.com", "_blank");
 
-            // Detectar el evento "popstate" (cuando se presiona el botón de retroceso)
-            nuevaPestana.addEventListener("popstate", function () {
-                // Cerrar la pestaña
-                nuevaPestana.close();
+            // Agregar evento "unload" para cerrar la pestaña al hacer clic en el botón "Cerrar pestaña"
+            nuevaPestana.addEventListener("load", function () {
+                nuevaPestana.document.body.innerHTML += "<button onclick='cerrarPestana()'>Cerrar pestaña</button>";
             });
+
+            // Función para cerrar la pestaña
+            function cerrarPestana() {
+                nuevaPestana.close();
+            }
         }
     </script>
 </body>
